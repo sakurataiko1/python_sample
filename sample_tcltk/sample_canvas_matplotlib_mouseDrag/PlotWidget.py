@@ -36,7 +36,6 @@ class PlotWidget(tk.Canvas):
         self.y2 = None
         self.ax.add_patch(self.rect) # matplotlib への紐づけ
 
-    # -start- ユーザーマウス操作で2点クリックされた時、その範囲に赤枠を表示する
     def func_on_canvas_click(self, event):
         # Canvas上でマウスクリック時の処理
         # マウス 2点クリックで矩形描画の場合
@@ -145,7 +144,3 @@ class PlotWidget(tk.Canvas):
         # 　　※in_xlim, in_ylim で画像を、グラフ位置に調整して重ねる　この記述がないとずれてしまって重なって見えない場合がある
         image = cv2.imread(workfilepath)
         self.ax.imshow(image, extent=[*in_xlim, *in_ylim], aspect='auto', alpha=0.6)
-
-
-
-    # -end- マウスドラッグで矩形描画
