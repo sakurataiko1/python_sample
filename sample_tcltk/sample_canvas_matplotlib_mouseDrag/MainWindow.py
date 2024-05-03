@@ -17,13 +17,11 @@ class GraphApp:
         #　部品定義： GUI全体レイアウトのためのフレーム　縦にならべる(row)
         self.frame00 = tk.Frame(self.root)
         self.frame01 = tk.Frame(self.root)
-        self.frame02 = tk.Frame(self.root)
         # 部品配置
         self.frame00.grid(row=0, column=0, padx=5, pady=5, sticky='nsew')
         self.frame01.grid(row=1, column=0, padx=5, pady=5, sticky='nsew')
-        self.frame02.grid(row=2, column=0, padx=5, pady=5, sticky='nsew')
         # ユーザーによる画面サイズ変更に追従して、GUI部品も伸縮するようにする
-        for i in range(3):
+        for i in range(2):
             self.root.columnconfigure(i, weight=1)  # 横方向へのサイズ伸縮
         self.root.rowconfigure(1, weight=1)  # 縦方向へのサイズ伸縮　は canvas=plotwidget配置する段のみ
 
@@ -40,7 +38,7 @@ class GraphApp:
  
         # レイアウト2段目：Matplotlibのグラフを表示するCanvas
         # 部品定義　2段目
-        self.plot_canvas1 = PlotWidget(self.frame02)
+        self.plot_canvas1 = PlotWidget(self.frame01)
         # 部品配置　2段目
         self.plot_canvas1.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
 
