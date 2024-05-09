@@ -22,6 +22,23 @@ class ChildWindow:
         self.create_widgets()
         self.window.mainloop()
 
+    def func_init_04(self, in_list1, in_list2):
+        tmpstr = 'モード4で起動しました\n'
+        tmpstr += ', ' +  ' '.join(in_list1)
+        tmpstr += ', ' +  ' '.join(in_list2)
+        tk.messagebox.showinfo("info", tmpstr)
+        self.create_widgets()
+        self.window.mainloop()
+
+    def func_init_05(self, in_list1, in_list2, in_str1):
+        tmpstr = 'モード5で起動しました\n'
+        tmpstr += ', ' +  ' '.join(in_list1)
+        tmpstr += ', ' +  ' '.join(in_list2)
+        tmpstr += ', ' +  ' '.join(in_str1)
+        tk.messagebox.showinfo("info", tmpstr)
+        self.create_widgets()
+        self.window.mainloop()
+
     # -start- org
     # def this_window_close(self):
     #     self.window.withdraw()
@@ -47,7 +64,7 @@ class ChildWindow:
         self.window.protocol('WM_DELETE_WINDOW', self.this_window_close)
 
         #self.geometry(str(400) + "x" + str(200) + "+" + str(400) + "+" + str(400))
-        self.window.geometry("600x200+400+400")
+        self.window.geometry("350x300+400+400")
         self.window.title("child window")
 
         # 部品定義　全体レイアウトのためのフレーム
@@ -64,14 +81,17 @@ class ChildWindow:
         self.frame5.grid(row=4, column=0, padx=10, pady=10, sticky="nsew")
 
         if self.mode == 1:
+            tk.messagebox.showinfo("info", 'モード1で起動しました')
             self.label1 = tk.Label(self.frame1, text="Mode 1: Label 1")
             self.label1.pack(side='left')
         elif self.mode == 2:
+            tk.messagebox.showinfo("info", 'モード2で起動しました')
             self.label2 = tk.Label(self.frame2, text="Mode 2: Label 2")
             self.label2.pack(side='left')
-        else:
-            self.label_invalid = tk.Label(self.frame3, text="Invalid Mode")
-            self.label_invalid.pack(side='left')
+        elif self.mode == 3:
+            tk.messagebox.showinfo("info", 'モード3で起動しました')
+            self.label_3 = tk.Label(self.frame3, text="Mode 3: Label 3")
+            self.label_3.pack(side='left')
 
         # 部品定義
         self.button_c1= tk.Button(self.frame3, text="親ウィンドウから情報取得", command=self.func_on_button_c1_clicked)
